@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Tab 1 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +10,17 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-
+  <div class="clicked-img">
+    <img src="{{clickedImage}}" height="200" width="200" alt="" />
+  </div>
   <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="camera-center">
+    <div class="upload-img-bg">
+      <ion-icon name="camera" (click)="takePicture()"></ion-icon>
+    </div>
+  </div>
+  <h2>Upload Image Over Here</h2>
+  <div>
+    <ion-button (click)="savedPicture()">From Gallery</ion-button>
+  </div>
 </ion-content>

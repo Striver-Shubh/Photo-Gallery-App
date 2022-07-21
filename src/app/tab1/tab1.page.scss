@@ -1,0 +1,23 @@
+.camera-center {
+  position: absolute;
+  left: 40%;
+  right: 50%;
+  bottom: 80px;
+  .upload-img-bg {
+    background-color: grey;
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ion-icon {
+      font-size: 48px;
+    }
+  }
+}
+.clicked-img {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}

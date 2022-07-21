@@ -1,17 +1,45 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+  <!-- <ion-toolbar class="bg-primary"> -->
+  <ion-title class="bg-primary text-white p-4"> Reactive Form </ion-title>
+  <!-- </ion-toolbar> -->
 </ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <form
+    action=""
+    class="m-3"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="personalDetails"
+  >
+    <ion-input
+      placeholder="First Name"
+      class="form-control my-3"
+      formControlName="fname"
+    ></ion-input>
+    <ion-input
+      placeholder="Second Name"
+      class="form-control my-3"
+      formControlName="sname"
+    ></ion-input>
+    <ion-input
+      placeholder="Age"
+      class="form-control my-3"
+      formControlName="age"
+    ></ion-input>
+    <ion-input
+      placeholder="Email"
+      class="form-control my-3"
+      formControlName="email"
+    ></ion-input>
+    <ion-input
+      placeholder="Password"
+      class="form-control my-3"
+      formControlName="password"
+    ></ion-input>
+    <ion-button type="submit">Submit</ion-button>
+    <ion-button (click)="Show()">Show Data</ion-button>
+  </form>
+  <div *ngFor="let i of AllData">
+    <h4>{{i.fname}} {{i.sname}} {{i.age}} {{i.email}} {{i.password}}</h4>
+    <br />
+  </div>
 </ion-content>
