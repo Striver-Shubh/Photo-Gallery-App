@@ -33,15 +33,15 @@ export class Tab2Page {
         location: 'default',
       })
       .then((db: SQLiteObject) => {
-        // try {
-        //   this.executeCommand(
-        //     db,
-        //     'CREATE TABLE IF NOT EXISTS DemoTable(fname varchar(32), sname varchar(32), age number, email varchar(32), password varchar(32))',
-        //     []
-        //   );
-        // } catch {
-        //   console.log('Command Error');
-        // }
+        try {
+          this.executeCommand(
+            db,
+            'CREATE TABLE IF NOT EXISTS DemoTable(fname varchar(32), sname varchar(32), age number, email varchar(32), password varchar(32))',
+            []
+          );
+        } catch {
+          console.log('Command Error');
+        }
         this.executeCommand(
           db,
           'INSERT INTO DemoTable(fname,sname,age,email,password) VALUES (?,?,?,?,?)',
@@ -62,8 +62,10 @@ export class Tab2Page {
       .then((data) => {
         // let arr = [];
         console.log('Executed SQL', data);
-        for (let i = 0; i < data.rows.length; i++) {
-          this.tableData.push(data?.rows?.item(i));
+        if (data !== undefined) {
+          for (let i = 0; i < data.rows.length; i++) {
+            this.tableData.push(data?.rows?.item(i));
+          }
         }
         // this.tableData.push(arr);
         console.log(this.tableData);
